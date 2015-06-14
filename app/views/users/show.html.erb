@@ -1,1 +1,9 @@
-<h1>In /Users/show</h1>
+<h1><%= @user.first_name %>'s Articles</h1>
+<% @user.articles.each do |article| %>
+<div>
+  <h3><%= article.title %></h3>
+  <p><%= article.content %></p>
+  <%= link_to "New Article" "/articles/new" %>
+  <!-- <%= link_to "Edit" "/articles/edit" %> -->
+  <!-- <%= link_to "Delete" "/articles/delete" %> -->
+</div>

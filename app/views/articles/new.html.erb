@@ -1,0 +1,5 @@
+<h1><%= @user.first_name %>'s Article</h1>
+<%= form_for @user, url:"/articles", method:"post" do |f| %>
+<%= f.text_field :title, placeholder: "Title" %>
+<%= f.text_area :content, placeholder: "Content" %>
+<% end %>
