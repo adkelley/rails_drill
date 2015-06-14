@@ -1,56 +1,24 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  root to: "sites#index"
+  
+  get 'sites', to: "sites#index"
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  get 'sites/about', to: "sites#about"
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'sites/contact', to: "sites#contact"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  get 'users/new', to: "users#new", as: "new_user"
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  get '/sign_in', to: "sessions#new"
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  get 'sessions/create', to: "sessions#create"
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
+#          Prefix Verb URI Pattern                Controller#Action
+#            root GET  /                          sites#index
+#           sites GET  /sites(.:format)           sites#index
+#     sites_about GET  /sites/about(.:format)     sites#about
+#   sites_contact GET  /sites/contact(.:format)   sites#contact
+#        new_user GET  /users/new(.:format)       users#new
+#         sign_in GET  /sign_in(.:format)         sessions#new
+# sessions_create GET  /sessions/create(.:format) sessions#create
