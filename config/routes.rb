@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: "users#show"
 
   get '/sign_in', to: "sessions#new"
-  get 'sessions/create', to: "sessions#create"
+  post 'sessions', to: "sessions#create"
 
 end
 #          Prefix Verb URI Pattern                Controller#Action
@@ -21,6 +21,7 @@ end
 #     sites_about GET  /sites/about(.:format)     sites#about
 #   sites_contact GET  /sites/contact(.:format)   sites#contact
 #        new_user GET  /users/new(.:format)       users#new
+#           users POST /users(.:format)           users#create
 #                 GET  /users/:id(.:format)       users#show
 #         sign_in GET  /sign_in(.:format)         sessions#new
-# sessions_create GET  /sessions/create(.:format) sessions#create
+# sessions_create POST /sessions/create(.:format) sessions#create
