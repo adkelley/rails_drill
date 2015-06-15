@@ -15,7 +15,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    article_id = params[:id]
+    @article = Article.find(article_id)
     render :edit
+  end
+
+  def update
+    article_id = params[:id]
+    article = Article.find(article_id)
+    article.update(article_params)
+    redirect_to "/users/#{current_user.id}"
   end
 
   def show
@@ -23,6 +32,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    article_id = params[:id]
+    Article.destroy(Article.find(article_id))
+    redirect_to "/users/#{current_user.id}"
   end
 
   private

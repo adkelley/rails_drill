@@ -13,15 +13,13 @@ Rails.application.routes.draw do
 
   get '/sign_in', to: "sessions#new"
   post 'sessions', to: "sessions#create"
-  delete '/users/:id', to: "sessions#destroy", as: "session_destroy"
+  delete '/users/:id', to: "sessions#destroy"
 
   get 'articles/new', to: "articles#new", as: "new_article"
   post 'articles', to: "articles#create"
-#  post 'articles', to: "articles#edit"
-#  get 'articles', to: "articles#show"
-#  delete '/users/:id', to: "articles#destroy", as: "article_destroy"
-  
-
+  get 'articles/:id', to: "articles#edit"
+  patch 'articles/:id', to: "articles#update"
+  delete 'articles/:id', to: "articles#destroy"
 end
 #          Prefix Verb   URI Pattern              Controller#Action
 #            root GET    /                        sites#index
